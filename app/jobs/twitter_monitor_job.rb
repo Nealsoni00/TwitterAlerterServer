@@ -9,7 +9,12 @@ class TwitterMonitorJob < ApplicationJob
   TWITTER_ACCESS_TOKEN = "1222968141036367872-GKPt0Zd9IOahMc8m74jrGCG0fIIs74"
   TWITTER_TOKEN_SECRET = "mr6w53dprk4QfgKjdlsprQPlGBUOeKv0ySlbj6FHWmDSZ"
 
-  def perform(*args)
-
+  def perform
+    client = Twitter::Streaming::Client.new do |config|
+      config.consumer_key = TWITTER_API_KEY
+      config.consumer_secret = TWITTER_API_SECRET
+      config.access_token = TWITTER_ACCESS_TOKEN
+      config.access_token_secret = TWITTER_TOKEN_SECRET
+    end
   end
 end
