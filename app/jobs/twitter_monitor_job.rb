@@ -18,7 +18,14 @@ class TwitterMonitorJob < ApplicationJob
     end
 
     client.filter({locations: "-122.75,36.8,-121.75,37.8"}) do |tweet|
-      puts tweet.text
+      puts "TEXT: #{tweet.text}"
+      puts "USERNAME: #{tweet.user.name}"
+      puts "USER HANDLE: #{tweet.user.screen_name}"
+      puts "USER PHOTO: #{tweet.user.profile_image_uri}"
+      puts "LIKES: #{tweet.favorite_count}"
+      puts "RETWEETS: #{tweet.retweet_count}"
+      puts "POST TIME: #{tweet.created_at}"
+      puts "FILTERS GENERATING TWEET: -122.75,36.8,-121.75,37.8"
     end
   end
 end
