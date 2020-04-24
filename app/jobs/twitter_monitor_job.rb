@@ -16,5 +16,9 @@ class TwitterMonitorJob < ApplicationJob
       config.access_token = TWITTER_ACCESS_TOKEN
       config.access_token_secret = TWITTER_TOKEN_SECRET
     end
+
+    client.filter({locations: "-122.75,36.8,-121.75,37.8"}) do |tweet|
+      puts tweet.text
+    end
   end
 end
