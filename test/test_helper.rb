@@ -4,4 +4,8 @@ require "rails/test_help"
 
 class ActiveSupport::TestCase
   include FactoryBot::Syntax::Methods
+
+  def response_json
+    JSON.parse(@response.body)
+  end
 end
