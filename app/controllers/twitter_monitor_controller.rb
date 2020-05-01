@@ -6,6 +6,6 @@ class TwitterMonitorController < ApplicationController
 
   # Returns the tweets from the last day in the DB
   def get_tweets
-
+    render json: Tweet.last_day
   end
 end
